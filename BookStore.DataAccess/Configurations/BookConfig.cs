@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 
+// it is needed in order to clearly indicate how the table in the database corresponding to this entity should look like.
+// It allows for more flexible and centralized management of the data model than through annotations in the entity itself.
 namespace BookStore.DataAccess.Configurations
 {
     public class BookConfig : IEntityTypeConfiguration<BookEntity>

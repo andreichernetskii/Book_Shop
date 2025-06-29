@@ -32,14 +32,14 @@ namespace BookStore.Core.Models
         // From Factory Method Pattern.
         public static (Book Book, string Error) Create(Guid id, string title, string description, decimal price)
         {
-            string error = string.Empty;
+            var error = string.Empty;
 
             if (string.IsNullOrEmpty(title) || title.Length > MAX_TITLE_LENGTH)
             {
                 error = $"Title cannot be empty or longer than {MAX_TITLE_LENGTH} symbols!";
             }
 
-            Book book = new Book(id, title, description, price);
+            var book = new Book(id, title, description, price);
 
             return (book, error);
         }

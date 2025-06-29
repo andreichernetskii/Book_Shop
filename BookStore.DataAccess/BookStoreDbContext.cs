@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using BookStore.DataAccess.Entites;
 using Microsoft.EntityFrameworkCore;
 
-namespace BookStore.DataAccess
-{
+namespace BookStore.DataAccess;
+
     // for use db
     public class BookStoreDbContext : DbContext
     {
@@ -19,4 +19,3 @@ namespace BookStore.DataAccess
 
         public DbSet<BookEntity> Books { get; set; }
     }
-}

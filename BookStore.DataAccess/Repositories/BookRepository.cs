@@ -15,12 +15,12 @@ namespace BookStore.DataAccess.Repositories
 
         public async Task<List<Book>> GetBooks()
         {
-            List<BookEntity> bookEntities = await _context.Books
+            var bookEntities = await _context.Books
                 .AsNoTracking() // allowed if nothing to change 
                 .ToListAsync();
 
             // mapper Enity to Domain model
-            List<Book> books = bookEntities
+            var books = bookEntities
                 .Select(book => Book.Create(book.Id, book.Title, book.Description, book.Price).Book)
                 .ToList();
 
@@ -29,7 +29,7 @@ namespace BookStore.DataAccess.Repositories
 
         public async Task<Guid> CreateBook(Book book)
         {
-            BookEntity bookEntity = new BookEntity
+            var bookEntity = new BookEntity
             {
                 Id = book.Id,
                 Title = book.Title,
